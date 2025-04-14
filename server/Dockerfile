@@ -1,12 +1,18 @@
-FROM node:23
+# FROM node:23
 
-WORKDIR /usr/src/app
+# WORKDIR /usr/src/app
 
-COPY package*.json ./
+# COPY package*.json ./
 
-RUN npm install 
+# RUN npm install 
 
-COPY . .
+# COPY . .
 
+# EXPOSE 7777
+# CMD ["npm", "run", "start"]
+
+FROM node:alpine
+WORKDIR /app
+COPY server.js .
 EXPOSE 7777
-CMD ["npm", "run", "start"]
+CMD ["node", "server.js"]
